@@ -8,6 +8,11 @@ package net.littlelite.smartrest.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import net.littlelite.smartrest.model.enums.PersonGroup;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,6 +28,21 @@ public class Person
 
     private String email;
 
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            mappedBy = "person")
+    private List<Phone> phones = new ArrayList<>();
+
     @Enumerated(EnumType.STRING)
     private PersonGroup personGroup;
+
+    public void associatePhones(@NotNull List<Phone> phones)
+    {
+        for (var phone: phones)
+        {
+            phone.setPerson(this);
+            this.phones.add(phone);
+        }
+    }
+
 }

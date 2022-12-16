@@ -4,7 +4,7 @@
  * This software is licensed under MIT License (see LICENSE)
  */
 
-package net.littlelite.smartrest.model;
+package net.littlelite.smartrest.model.enums;
 
 public enum PersonGroup
 {
