@@ -7,7 +7,7 @@
 package net.littlelite.smartrest.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import net.littlelite.smartrest.model.enums.Provider;
 
 @Entity

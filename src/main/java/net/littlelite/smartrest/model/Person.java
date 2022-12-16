@@ -7,7 +7,7 @@
 package net.littlelite.smartrest.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import net.littlelite.smartrest.model.enums.PersonGroup;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,20 +29,19 @@ public class Person
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            mappedBy = "person")
+                fetch = FetchType.EAGER,
+                mappedBy = "person")
     private List<Phone> phones = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private PersonGroup personGroup;
 
-    public void associatePhones(@NotNull List<Phone> phones)
+    public void associatePhones(@NotNull List<Phone> phoneNumbers)
     {
-        for (var phone: phones)
-        {
+        phoneNumbers.forEach(phone -> {
             phone.setPerson(this);
             this.phones.add(phone);
-        }
+        });
     }
 
 }
