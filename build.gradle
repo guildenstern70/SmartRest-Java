@@ -14,15 +14,18 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-freemarker'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-freemarker:3.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas:3.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-web:3.0.0'
+	implementation 'org.projectlombok:lombok:1.18.24'
 	implementation 'org.jetbrains:annotations:23.0.0'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testImplementation 'org.assertj:assertj-core:3.23.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 tasks.named('test') {

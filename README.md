@@ -1,6 +1,6 @@
 # Smart REST - Java Edition
 
-Do you need Kotlin Edition? Here it is: https://github.com/guildenstern70/SmartREST
+Are you looking for SmartREST Kotlin Edition? Here it is: https://github.com/guildenstern70/SmartREST
 
 ### Reference Documentation
 For further reference, please consider the following sections:

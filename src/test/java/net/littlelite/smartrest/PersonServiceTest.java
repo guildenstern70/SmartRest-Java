@@ -6,26 +6,26 @@
 
 package net.littlelite.smartrest;
 
+import net.littlelite.smartrest.service.PersonService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-class SmartRestTest
+public class PersonServiceTest
 {
-    @DisplayName("Context should load")
-    @Test
-    void contextLoads()
-    {
-    }
+    @Autowired
+    private PersonService personService;
 
-    @DisplayName("19 and 23 should be 42")
+    @DisplayName("Persons should be retrieved")
     @Test
     public void testAdd()
     {
-        var sum = Integer.sum(19, 23);
-        assertThat(sum).isEqualTo(42);
+        var persons = this.personService.getAllPersons();
+        assertThat(persons).isNotEmpty();
+        assertThat(persons.size()).isEqualTo(4);
     }
 }
