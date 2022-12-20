@@ -1,16 +1,16 @@
 /*
- * Project SmartREST - Java Edition
- * Copyright (c) Alessio Saltarin 2022.
- * This software is licensed under MIT License (see LICENSE)
+ *  Project SmartREST - Java Edition
+ *  Copyright (c) Alessio Saltarin 2022.
+ *  This software is licensed under MIT License (see LICENSE)
  */
 
 package net.littlelite.smartrest.service;
 
 import net.littlelite.smartrest.dao.PersonDao;
 import net.littlelite.smartrest.dao.PhoneDao;
+import net.littlelite.smartrest.model.Person;
 import net.littlelite.smartrest.model.Phone;
 import net.littlelite.smartrest.model.enums.PersonGroup;
-import net.littlelite.smartrest.model.Person;
 import net.littlelite.smartrest.model.enums.Provider;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;

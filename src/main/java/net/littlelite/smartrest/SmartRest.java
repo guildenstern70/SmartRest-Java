@@ -1,7 +1,7 @@
 /*
- * Project SmartREST - Java Edition
- * Copyright (c) Alessio Saltarin 2022.
- * This software is licensed under MIT License (see LICENSE)
+ *  Project SmartREST - Java Edition
+ *  Copyright (c) Alessio Saltarin 2022.
+ *  This software is licensed under MIT License (see LICENSE)
  */
 
 package net.littlelite.smartrest;
@@ -18,7 +18,7 @@ import org.springframework.core.env.Environment;
 public class SmartRest implements CommandLineRunner
 {
 	private final Logger logger = LoggerFactory.getLogger(SmartRest.class);
-	private Environment environment;
+	private final Environment environment;
 
 	@Autowired
 	public SmartRest(Environment environment)

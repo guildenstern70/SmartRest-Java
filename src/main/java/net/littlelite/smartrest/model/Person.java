@@ -1,13 +1,13 @@
 /*
- * Project SmartREST - Java Edition
- * Copyright (c) Alessio Saltarin 2022.
- * This software is licensed under MIT License (see LICENSE)
+ *  Project SmartREST - Java Edition
+ *  Copyright (c) Alessio Saltarin 2022.
+ *  This software is licensed under MIT License (see LICENSE)
  */
 
 package net.littlelite.smartrest.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 import net.littlelite.smartrest.model.enums.PersonGroup;
 import org.jetbrains.annotations.NotNull;
 
