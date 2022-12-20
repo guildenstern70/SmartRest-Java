@@ -1,0 +1,8 @@
+!/build/libs/smartrestjava.jar
+.git/
+.idea/
+build/
+*.iml
+Dockerfile
+.dockerignore
+.gitignore

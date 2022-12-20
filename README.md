@@ -1,28 +1,21 @@
 # Smart REST - Java Edition
 
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 Are you looking for SmartREST Kotlin Edition? Here it is: https://github.com/guildenstern70/SmartREST
 
-### Reference Documentation
-For further reference, please consider the following sections:
+### Build as Docker image
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.0.0/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.0.0/gradle-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.0.0/reference/htmlsingle/#web)
-* [Apache Freemarker](https://docs.spring.io/spring-boot/docs/3.0.0/reference/htmlsingle/#web.servlet.spring-mvc.template-engines)
-* [Spring HATEOAS](https://docs.spring.io/spring-boot/docs/3.0.0/reference/htmlsingle/#web.spring-hateoas)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/3.0.0/reference/htmlsingle/#using.devtools)
+    gradle clean assemble
+    docker build --platform linux/amd64 -t smartrest:1.0 .
 
-### Guides
-The following guides illustrate how to use some features concretely:
+### Tag image to be uploaded to a repository
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/)
+    docker tag smartrest:1.0 docker.io/[your_user]/smartrest:1.0
 
-### Additional Links
-These additional references should also help you:
+### Run docker image
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+    docker run --publish 8080:8080 --name SmartRest smartrest:1.0   
+
+
 
