@@ -2,6 +2,14 @@
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
+A template REST API project with
+
+* SpringBoot (pure Java)
+* JPA (H2 DB in memory)
+* API REST with Swagger site
+* Apache FreeMarker Template
+
+
 Are you looking for SmartREST Kotlin Edition? Here it is: https://github.com/guildenstern70/SmartREST
 
 ### Build as Docker image
