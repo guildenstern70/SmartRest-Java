@@ -12,6 +12,7 @@ import net.littlelite.smartrest.model.Person;
 import net.littlelite.smartrest.model.Phone;
 import net.littlelite.smartrest.model.enums.PersonGroup;
 import net.littlelite.smartrest.model.enums.Provider;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +22,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 
 @Service
@@ -33,9 +36,12 @@ public class DbInitializer implements ApplicationRunner
     private final PersonDao personDAO;
     private final PhoneDao phoneDao;
 
+    private Random random;
+
     @Autowired
     public DbInitializer(PersonDao personDAO, PhoneDao phoneDao)
     {
+        this.random = new Random();
         this.personDAO = personDAO;
         this.phoneDao = phoneDao;
     }
@@ -54,10 +60,6 @@ public class DbInitializer implements ApplicationRunner
     {
         logger.info("Populating DB...");
 
-        List<Phone> phones = Arrays.asList(
-                this.createPhone("348-39020292", Provider.TIM),
-                this.createPhone("333-32232211", Provider.VODAFONE));
-
         List<Person> persons = Arrays.asList(
                 this.createPerson("Alessio", "Saltarin",
                         "alessiosaltarin@gmail.com", PersonGroup.ADMINISTRATOR),
@@ -70,16 +72,29 @@ public class DbInitializer implements ApplicationRunner
         );
 
         persons.forEach(person -> {
-            person.associatePhones(phones);
+            person.associatePhones(this.getPhones());
         });
 
         this.personDAO.saveAll(persons);
     }
 
-    private @NotNull Phone createPhone(String number, Provider provider)
+    @Contract(" -> new")
+    private @NotNull List<Phone> getPhones()
     {
+        return new ArrayList() {{
+            add(createPhone());
+            add(createPhone());
+        }};
+    }
+
+    private @NotNull Phone createPhone()
+    {
+        var provider = Provider.values()[this.random.nextInt(Provider.values().length)];
+        var prefix = this.random.nextInt(333,350);
+        long number = this.random.nextLong(2222222222L,9999999999L);
+        String phoneNumber = prefix + "-" + number;
         var phone = new Phone();
-        phone.setNumber(number);
+        phone.setNumber(phoneNumber);
         phone.setProvider(provider);
         return phone;
     }

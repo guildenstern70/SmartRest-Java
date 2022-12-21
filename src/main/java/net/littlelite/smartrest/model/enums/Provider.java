@@ -10,7 +10,8 @@ public enum Provider
 {
     TIM,
     VODAFONE,
-    TRE,
+    WINDTRE,
     FASTWEB,
-    UNKNOWN
+    ILIAD
+
 }
