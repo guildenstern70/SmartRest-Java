@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +35,7 @@ public class DbInitializer implements ApplicationRunner
     private final PersonDao personDAO;
     private final PhoneDao phoneDao;
 
-    private Random random;
+    private final Random random;
 
     @Autowired
     public DbInitializer(PersonDao personDAO, PhoneDao phoneDao)
@@ -55,7 +54,6 @@ public class DbInitializer implements ApplicationRunner
         logger.info("Done populating DB: " + numberOfPersons + " persons and " + numberOfPhones + " phones.");
     }
 
-    @Transactional
     protected void populateDatabase()
     {
         logger.info("Populating DB...");
@@ -71,9 +69,7 @@ public class DbInitializer implements ApplicationRunner
                         "filippogiuisti@outlook.com", PersonGroup.GUEST)
         );
 
-        persons.forEach(person -> {
-            person.associatePhones(this.getPhones());
-        });
+        persons.forEach(person -> person.associatePhones(this.getPhones()));
 
         this.personDAO.saveAll(persons);
     }
@@ -81,7 +77,8 @@ public class DbInitializer implements ApplicationRunner
     @Contract(" -> new")
     private @NotNull List<Phone> getPhones()
     {
-        return new ArrayList() {{
+        return new ArrayList<>()
+        {{
             add(createPhone());
             add(createPhone());
         }};
