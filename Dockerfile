@@ -1,5 +1,4 @@
 FROM gradle:jdk19-focal AS gradle_build
-MAINTAINER Alessio Saltarin <alessiosaltarin@gmail.com>
 
 # Copy source code
 COPY build.gradle /build/

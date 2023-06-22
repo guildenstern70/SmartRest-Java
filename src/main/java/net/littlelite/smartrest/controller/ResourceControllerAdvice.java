@@ -34,7 +34,8 @@ public class ResourceControllerAdvice extends ResponseEntityExceptionHandler
             ResourceAlreadyExists ex, WebRequest request)
     {
 
-        String bodyOfResponse = "Error: Resource already exists. " + ex.getMessage();
+        String bodyOfResponse =
+                "Error: Resource already exists. " + ex.getMessage();
         return handleExceptionInternal(ex, bodyOfResponse,
                 new HttpHeaders(), HttpStatus.CONFLICT, request);
     }

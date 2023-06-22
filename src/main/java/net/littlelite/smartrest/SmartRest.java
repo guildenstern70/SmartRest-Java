@@ -17,7 +17,10 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication
 public class SmartRest implements CommandLineRunner
 {
+	public static final String VERSION = "0.1.0";
+
 	private final Logger logger = LoggerFactory.getLogger(SmartRest.class);
+
 	private final Environment environment;
 
 	@Autowired
@@ -26,19 +29,18 @@ public class SmartRest implements CommandLineRunner
 		this.environment = environment;
 	}
 
-	public static final String VERSION = "0.1.0";
-
 	public static void main(String[] args) {
 		SpringApplication.run(SmartRest.class, args);
 	}
 
 	@Override
-	public void run(String... args) throws Exception
+	public void run(String... args)
 	{
+		String jvm = " (JVM " + System.getProperty("java.version") + ")";
 		String runningUrl = "http://localhost:" + this.environment.getProperty("local.server.port");
 		logger.info("*******************************************");
 		logger.info("  SmartREST - Java Edition - v." + VERSION);
-		logger.info("  Running on " + runningUrl + " (JVM " + System.getProperty("java.version") + ")");
+		logger.info("  Running on " + runningUrl + jvm);
 		logger.info("*******************************************");
 	}
 }

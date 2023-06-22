@@ -73,44 +73,4 @@ public class PersonsController
         return new ResponseEntity<>(person.get(), OK);
     }
 
-/*    @PutMapping("/{id}")
-    public ResponseEntity<?> editPersonById(@PathVariable("id") long id,
-                                            @Valid @RequestBody NewPersonDTO person)
-    {
-        this.logger.info("Received PUT REQUEST for Person #" + id);
-
-        var modifiedPerson = this.personService.editPerson(id, person);
-        if (modifiedPerson == null)
-        {
-            throw new ResourceNotFoundException(id);
-        }
-
-        return new ResponseEntity<>(person, OK);
-    }
-
-    @PostMapping
-    public ResponseEntity<?> createPerson(@Valid @RequestBody NewPersonDTO person,
-                                          UriComponentsBuilder uriComponentsBuilder)
-    {
-        this.logger.info("Received POST REQUEST to create a new person");
-
-        var createdPerson = this.personService.createPerson(person, null);
-        if (createdPerson == null)
-        {
-            this.logger.warn("A person with email " + person.getEmail() + " already exists.");
-            throw new ResourceAlreadyExists(person.getEmail());
-        }
-        else
-        {
-            final HttpHeaders headers = new HttpHeaders();
-            headers.setLocation(uriComponentsBuilder.path("/api/v1/persons/{id}")
-                    .buildAndExpand(
-                            createdPerson.getId()
-                    )
-                    .toUri()
-            );
-            return new ResponseEntity<>(headers, HttpStatus.CREATED);
-        }
-    }*/
-
 }

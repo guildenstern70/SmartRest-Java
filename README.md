@@ -1,6 +1,7 @@
 # Smart REST - Java Edition
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a3472ccda37c4170adaff25373b7c81f)](https://app.codacy.com/gh/guildenstern70/SmartRest-Java/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 A template REST API project with
 
