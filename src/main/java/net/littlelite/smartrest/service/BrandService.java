@@ -42,4 +42,44 @@ public class BrandService
     {
         return brandRepository.findById(id);
     }
+
+    @Transactional
+    public BrandDto createBrand(net.littlelite.smartrest.dto.CreateBrandDto dto)
+    {
+        String trimmedName = dto.name().trim();
+        if (brandRepository.findByNameIgnoreCase(trimmedName).isPresent())
+        {
+            throw new IllegalArgumentException("Brand with name '" + trimmedName + "' already exists");
+        }
+
+        Brand brand = Brand.builder()
+                .name(trimmedName)
+                .country(dto.country().trim())
+                .build();
+
+        return BrandDto.fromEntity(brandRepository.save(brand));
+    }
+
+    @Transactional
+    public boolean deleteBrand(Long id)
+    {
+        Optional<Brand> brandOptional = brandRepository.findById(id);
+        if (brandOptional.isEmpty())
+        {
+            return false;
+        }
+
+        Brand brand = brandOptional.get();
+        if (brand.getDealers() != null && !brand.getDealers().isEmpty())
+        {
+            List<String> dealerNames = brand.getDealers().stream()
+                    .map(net.littlelite.smartrest.model.Dealer::getName)
+                    .toList();
+            throw new IllegalStateException("Cannot delete brand '" + brand.getName()
+                    + "' because it is associated with dealer(s): " + dealerNames);
+        }
+
+        brandRepository.delete(brand);
+        return true;
+    }
 }

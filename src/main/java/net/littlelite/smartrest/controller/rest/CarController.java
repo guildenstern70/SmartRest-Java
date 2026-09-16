@@ -10,12 +10,16 @@ package net.littlelite.smartrest.controller.rest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import jakarta.validation.Valid;
 import net.littlelite.smartrest.dto.CarDto;
+import net.littlelite.smartrest.dto.CreateCarDto;
 import net.littlelite.smartrest.model.FuelType;
 import net.littlelite.smartrest.service.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -55,5 +59,28 @@ public class CarController
         return carService.getCarById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    @Operation(summary = "Create a new car")
+    public ResponseEntity<CarDto> createCar(@Valid @RequestBody CreateCarDto createCarDto)
+    {
+        CarDto created = carService.createCar(createCarDto);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(created.id())
+                .toUri();
+        return ResponseEntity.created(location).body(created);
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a car by ID")
+    public ResponseEntity<Void> deleteCar(@PathVariable Long id)
+    {
+        if (carService.deleteCar(id))
+        {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }
