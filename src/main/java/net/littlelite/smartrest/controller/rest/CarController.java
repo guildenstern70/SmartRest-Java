@@ -5,7 +5,7 @@
  * See LICENSE
  */
 
-package net.littlelite.smartrest.controller;
+package net.littlelite.smartrest.controller.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

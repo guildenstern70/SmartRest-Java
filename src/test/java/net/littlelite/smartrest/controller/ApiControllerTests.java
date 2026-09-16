@@ -79,4 +79,15 @@ class ApiControllerTests
                 .andExpect(jsonPath("$", not(empty())))
                 .andExpect(jsonPath("$[*].type", everyItem(is("ELECTRIC"))));
     }
+
+    @Test
+    @DisplayName("GET /api/alive returns alive=true, application version, and sanitized database URL")
+    void testGetAlive() throws Exception
+    {
+        mockMvc.perform(get("/api/alive").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.alive", is(true)))
+                .andExpect(jsonPath("$.version", is("0.0.1-SNAPSHOT")))
+                .andExpect(jsonPath("$.database", is("jdbc:h2:mem:smartrestdb")));
+    }
 }

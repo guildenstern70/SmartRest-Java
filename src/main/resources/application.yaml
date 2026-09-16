@@ -4,6 +4,7 @@ spring:
       enabled: ALWAYS
   application:
     name: SmartRest
+    version: 0.0.1-SNAPSHOT
   datasource:
     url: jdbc:h2:mem:smartrestdb
     driverClassName: org.h2.Driver
@@ -20,6 +21,16 @@ spring:
 springdoc:
   api-docs:
     enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
 
 
 
