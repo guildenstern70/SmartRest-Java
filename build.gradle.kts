@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "net.littlelite"
-version = "0.0.1-SNAPSHOT"
+version = "0.7.0"
 
 java {
 	toolchain {

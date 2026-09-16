@@ -27,6 +27,9 @@ class ApiControllerTests
     @Autowired
     private WebApplicationContext webApplicationContext;
 
+    @Autowired
+    private net.littlelite.smartrest.service.AliveService aliveService;
+
     private MockMvc mockMvc;
 
     @BeforeEach
@@ -87,7 +90,7 @@ class ApiControllerTests
         mockMvc.perform(get("/api/alive").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.alive", is(true)))
-                .andExpect(jsonPath("$.version", is("0.0.1-SNAPSHOT")))
+                .andExpect(jsonPath("$.version", is(aliveService.getVersion())))
                 .andExpect(jsonPath("$.database", is("jdbc:h2:mem:smartrestdb")));
     }
 }

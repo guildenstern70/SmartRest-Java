@@ -4,7 +4,7 @@ spring:
       enabled: ALWAYS
   application:
     name: SmartRest
-    version: 0.0.1-SNAPSHOT
+    version: 0.7.0
   datasource:
     url: jdbc:h2:mem:smartrestdb
     driverClassName: org.h2.Driver
@@ -21,6 +21,11 @@ spring:
 springdoc:
   api-docs:
     enabled: true
+  swagger-ui:
+    document-title: "SmartREST API"
+    syntax-highlight:
+      activated: true
+      theme: idea
 management:
   endpoints:
     web:

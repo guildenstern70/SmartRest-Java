@@ -365,7 +365,10 @@
         <!-- Footer -->
         <footer>
             <p>
-                ${appName} Java Edition &bull; Version ${appVersion} &bull; Licensed under ISC &bull;
+                ${appName} - Java Edition &bull;
+                Version ${appVersion} &bull;
+                Licensed under ISC &bull;
+                Alessio Saltarin 2026 &bull;
                 <a href="https://github.com/guildenstern70/SmartREST" target="_blank" rel="noopener noreferrer">SmartREST Kotlin Edition</a>
             </p>
         </footer>

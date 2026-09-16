@@ -28,7 +28,7 @@ class AliveServiceTests
         AliveDto aliveDto = aliveService.getAliveStatus();
         assertNotNull(aliveDto);
         assertTrue(aliveDto.alive());
-        assertEquals("0.0.1-SNAPSHOT", aliveDto.version());
+        assertEquals(aliveService.getVersion(), aliveDto.version());
         assertEquals("jdbc:h2:mem:smartrestdb", aliveDto.database());
     }
 
