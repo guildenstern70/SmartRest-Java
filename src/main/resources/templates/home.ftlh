@@ -312,7 +312,7 @@
                 </table>
             </section>
 
-            <!-- Architecture & Namespaces Card -->
+            <!-- Architecture & Namespaces Card
             <section class="card">
                 <h2>🏛️ Architecture & Namespaces</h2>
                 <p>Standardized package hierarchy for predictable separation of concerns:</p>
@@ -326,6 +326,7 @@
                     <li><code>dto</code> - Data transfer and serialization objects</li>
                 </ul>
             </section>
+            -->
 
             <!-- Usage & Commands Card -->
             <section class="card">
@@ -343,7 +344,7 @@
                 </ul>
             </section>
 
-            <!-- Endpoints Overview Card -->
+            <!-- Endpoints Overview Card
             <section class="card">
                 <h2>📡 REST Endpoints</h2>
                 <p>Sample pre-loaded automotive domain endpoints:</p>
@@ -358,6 +359,7 @@
                     For interactive testing and schema details, click <strong>Explore APIs</strong> above.
                 </p>
             </section>
+            -->
         </main>
 
         <!-- Footer -->

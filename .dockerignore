@@ -1,0 +1,14 @@
+.git
+.gitignore
+.gitattributes
+.gradle
+.idea
+.DS_Store
+build/
+out/
+*.log
+Dockerfile*
+docker-compose*
+README.md
+AGENTS.md
+LICENSE
