@@ -2,6 +2,8 @@
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
+<img src="./src/main/resources/screenshot.png" alt="Screenshot" width="700" />
+
 A template REST API project with
 
 * SpringBoot (Java 26 + Lombok)
