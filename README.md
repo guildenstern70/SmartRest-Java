@@ -1,6 +1,7 @@
 # Smart REST - Java Edition
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a3472ccda37c4170adaff25373b7c81f)](https://app.codacy.com/gh/guildenstern70/SmartRest-Java/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 <img src="./src/main/resources/screenshot.png" alt="Screenshot" width="700" />
 
